@@ -1,0 +1,23 @@
+.div {
+  color: #af8eb5;
+  display: flex;
+}
+.div div {
+  width: 33.333333%;
+  color: burlywood;
+}
+
+.navigator {
+  display: flex;
+  justify-content: center;
+}
+
+.navigator a {
+  font-size: 24px;
+  margin: 5px 40px;
+}
+
+.navigator a:hover {
+  color: gray;
+  transition: 0.1s;
+}
