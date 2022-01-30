@@ -1,9 +1,28 @@
 import styled from "styled-components";
 
 const Text = (props) => {
-  const { children, size, lineheight, color, bold, margin, padding, onClick } =
-    props;
-  const styles = { size, lineheight, color, bold, margin, padding };
+  const {
+    children,
+    mSize,
+    smSize,
+    size,
+    lineheight,
+    color,
+    bold,
+    margin,
+    padding,
+    onClick,
+  } = props;
+  const styles = {
+    size,
+    mSize,
+    smSize,
+    lineheight,
+    color,
+    bold,
+    margin,
+    padding,
+  };
   return (
     <>
       <P {...styles} onClick={onClick}>
@@ -16,9 +35,15 @@ const Text = (props) => {
 export default Text;
 
 const P = styled.p`
+  @media (max-width: 600px) {
+    ${(props) => (props.mSize ? `font-size: ${props.mSize};` : "")};
+  }
+  @media (max-width: 400px) {
+    ${(props) => (props.smSize ? `font-size: ${props.smSize};` : "")};
+  }
   text-align: center;
-  font-size: ${(props) => props.size}px;
-  line-height: ${(props) => props.lineheight}px;
+  ${(props) => (props.size ? `font-size: ${props.size};` : "")};
+  ${(props) => (props.lineheight ? `line-height: ${props.lineheight};` : "")};
   color: ${(props) => props.color};
   font-weight: ${(props) => (props.bold ? 400 : 700)};
   ${(props) => (props.margin ? `margin: ${props.margin};` : "")};
@@ -26,8 +51,8 @@ const P = styled.p`
 `;
 
 Text.defaultProps = {
-  size: "16",
-  lineheight: "20",
+  size: "1rem",
+  lineheight: "",
   color: "#896a60",
   bold: 400,
   margin: "",
